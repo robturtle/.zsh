@@ -1,0 +1,71 @@
+* Prerequisites
+** Special fonts
+- Download and install [[https://github.com/powerline/fonts/blob/master/Meslo/Meslo%2520LG%2520S%2520Regular%2520for%2520Powerline.otf][special fonts]] by pressing the "view raw" button.
+- iTerm > Preferences > Profile > Text :: change both =Regular Font= and =Non-ASCII Font=.
+
+** Meta settings
+- iTerm > Preferences > Profile > Keys :: both options to =+Esc=
+
+* New Function
+
+| name   | function               | rank   |
+|--------+------------------------+--------|
+| Ctrl+R | search shell history   | Killer |
+| Ctrl-S | file manager           | Killer |
+| ff     | file partial searching | Helper |
+| pclip  | stdin into clipboard   | Helper |
+
+* For newbies
+
+** Common Emacs shortcuts in shell
+
+Let 'C' stands for Ctrl, 'M' stands for 'Meta'
+
+| key           | function                  | mutation | function |
+|---------------+---------------------------+----------+----------|
+| C-A           | beginning of line         |          |          |
+| C-E           | *E*-nd of line            |          |          |
+| C-K           | *K*-ill to end of line    |          |          |
+| C-U           | *U*-ntype words           |          |          |
+| C-D           | *D*-elete forward         |          |          |
+| BACKSPACE/C-H | delete backward           |          |          |
+| C-F           | move *F*-orward one char  | M-F      | one word |
+| C-B           | move *B*-ackward one char | M-B      | one word |
+| C-P           | *P*-revious command       |          |          |
+| C-N           | *N*-ext command           |          |          |
+| C-L           | clear screen              |          |          |
+
+** Common vim shorcuts in shell
+
+in =man=, =less=:
+
+| key | function     |
+|-----+--------------|
+| j   | down         |
+| k   | up           |
+| h   | left         |
+| l   | right        |
+| C-D | page *D*-own |
+| C-U | page *U*-p   |
+| gg  | first line   |
+| G   | last line    |
+| \/  | search       |
+
+* ranger
+
+| key     | function            |
+|---------+---------------------|
+| SPACE   | mark/unmark         |
+| m       | add bookmark        |
+| `       | goto bookmark       |
+| j/k/h/l | navigates           |
+| yy      | copy marked files   |
+| dd      | cut marked files    |
+| pp      | paste               |
+| :delete | delete marked files |
+| :mkdir  | make directory      |
+
+* git
+| name    | function                  | rank   |
+|---------+---------------------------+--------|
+| gitkall | show all branches in gitk | Helper |
