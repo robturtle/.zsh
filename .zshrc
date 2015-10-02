@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jeremy/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -84,9 +84,9 @@ HIST_STAMPS="mm/dd/yyyy"
 # wd bookmarks dirs
 plugins=(git brew dircycle dirhistory git-extras wd mvn)
 
+source $ZSH/oh-my-zsh.sh
+
 MY_DOT_ZSH="${HOME}/.zsh/"
 for module in "env" "alias" "func"; do
     source "${MY_DOT_ZSH}/${module}.rc.sh"
 done
-
-source $ZSH/oh-my-zsh.sh
