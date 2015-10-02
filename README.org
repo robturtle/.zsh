@@ -27,7 +27,7 @@ Let 'C' stands for Ctrl, 'M' stands for 'Meta'
 | C-E           | *E*-nd of line            |          |          |
 | C-K           | *K*-ill to end of line    |          |          |
 | C-U           | *U*-ntype words           |          |          |
-| C-D           | *D*-elete forward         |          |          |
+| C-D           | *D*-elete forward         | M-D      | one word |
 | BACKSPACE/C-H | delete backward           |          |          |
 | C-F           | move *F*-orward one char  | M-F      | one word |
 | C-B           | move *B*-ackward one char | M-B      | one word |
