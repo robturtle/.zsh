@@ -20,13 +20,9 @@ export PLATFORM=`uname -s`
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # path
-for p in ".rvm/bin"  \
-            ".rvm/gems/ruby-2.1.5/bin" \
-            ".rvm/gems/ruby-2.1.5@global/bin" \
-            ".rvm/rubies/ruby-2.1.5/bin" \
-            ".cabal/bin"
+for p in ".cabal/bin"
 do
-    export PATH="${PATH}:${p}"
+    export PATH="${PATH}:${HOME}/${p}"
 done
 
 # Java
