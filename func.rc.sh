@@ -11,8 +11,8 @@ function exists { which $1 &> /dev/null }
 function initinstall {
     exists $1
     if [[ "$?" != "0" ]]; then
-        shift
         echo "$1 not installed. Installing ..."
+        shift
         "$@"
     fi
 }
