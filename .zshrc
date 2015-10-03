@@ -87,6 +87,6 @@ plugins=(git brew dircycle dirhistory git-extras wd mvn)
 source $ZSH/oh-my-zsh.sh
 
 MY_DOT_ZSH="${HOME}/.zsh/"
-for module in "env" "alias" "func"; do
+for module in "env" "alias" "func" "python"; do
     source "${MY_DOT_ZSH}/${module}.rc.sh"
 done
