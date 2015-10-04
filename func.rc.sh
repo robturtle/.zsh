@@ -95,7 +95,7 @@ function yang-update {
                 echo "$repo don't have remote upstream. Not updating."
             else
                 echo "Upgrading $repo ..."
-                git pull --rebase --stat $upstream
+                git pull --rebase --stat $upstream master
             fi
             popd >/dev/null
         fi
