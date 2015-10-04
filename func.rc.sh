@@ -107,9 +107,9 @@ function ff {
 function yang-update {
     if [[ -d "${HOME}/.emacs.d/.git/" ]]; then
         pushd "${HOME}/.emacs.d/" >/dev/null
-        have_upstream=`git branch | grep 'upstream'`
+        have_upstream=`git remote | grep 'upstream'`
         if [[ -z "$have_upstream" ]]; then
-            echo "~/.emacs.d don't have branch upstream. Not updating."
+            echo "~/.emacs.d don't have remote upstream. Not updating."
         else
             echo "Fetching upstream..."
             git fetch upstream
@@ -123,12 +123,12 @@ function yang-update {
         pushd "${HOME}/.zsh/" >/dev/null
         current_br=`git branch | grep '*' | tr -d '* '`
         remote=`git remote | cut -f 1`
-        have_upstream=`git branch | grep 'upstream'`
+        have_upstream=`git remote | grep 'upstream'`
         if [[ "$current_br" == "master" ]]; then
             echo "Pulling from $remote"
             git pull "$remote"
         elif [[ -z "$have_upstream" ]]; then
-            echo "~/.zsh don't have branch upstream. Not updating."
+            echo "~/.zsh don't have remote upstream. Not updating."
         else
             echo "Fetching upstream..."
             git fetch upstream
