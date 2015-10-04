@@ -13,9 +13,9 @@ fi
 for link in .zshrc .percol.d
 do
     echo "Now install my $link"
-    diff "${PWD}/$link" "${HOME}/$link" 2>/dev/null
-    if [[ "$?" != "0" ]]; then
-        [[ -f "${HOME}/$link" ]] && mv "${HOME}/$link" "${HOME}/$link.bk"
+    differ=`diff "${PWD}/$link" "${HOME}/$link" 2>/dev/null`
+    if [[ "$?" != "0" || -n "$differ" ]]; then
+        [[ -f "${HOME}/$link" || -d "${HOME}/$link" ]] && mv "${HOME}/$link" "${HOME}/$link.bk"
         echo "Creating link to ~/$link"
         echo
         ln -s "${PWD}/$link" "${HOME}"
