@@ -5,7 +5,6 @@
 export LANG=en_US.UTF-8
 
 # user
-export DEFAULT_USER="jeremy"
 export INSTALLER="brew install"
 
 # auto-updating git repos
