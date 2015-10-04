@@ -6,24 +6,6 @@ function topcmds {
     | sort -r -n -k 1 | head
 }
 
-function exists { which $1 &> /dev/null }
-
-function initinstall {
-    exists $1
-    if [[ "$?" != "0" ]]; then
-        echo "$1 not installed. Installing ..."
-        shift
-        "$@"
-    fi
-}
-
-if [[ "$PLATFORM" == 'Darwin' && "$INSTALLER" == 'brew' ]]; then
-    initinstall brew ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-fi
-
-initinstall easy_install sudo curl https://bootstrap.pypa.io/ez_setup.py -o - | ${PYTHON}
-initinstall percol sudo easy_install percol
-
 ## Killer function: searching zsh history
 ## short-cut      : Ctrl+R
 ## Usage : type Ctrl-R at any time while you typing, it will list all your zsh history commands
@@ -105,36 +87,36 @@ function ff {
 
 ## Update all my repos
 function yang-update {
-    if [[ -d "${HOME}/.emacs.d/.git/" ]]; then
-        pushd "${HOME}/.emacs.d/" >/dev/null
-        have_upstream=`git remote | grep 'upstream'`
-        if [[ -z "$have_upstream" ]]; then
-            echo "~/.emacs.d don't have remote upstream. Not updating."
-        else
-            echo "Fetching upstream..."
-            git fetch upstream
-            echo "Rebasing upstream..."
-            git rebase upstream
+    for repo in $MY_GIT_REPOS; do
+        if [[ -d "$repo/.git/" ]]; then
+            pushd "$repo" >/dev/null
+            upstream=`git remote | grep 'upstream\|origin\|github'`
+            if [[ -z "$upstream" ]]; then
+                echo "$repo don't have remote upstream. Not updating."
+            else
+                echo "Upgrading $repo ..."
+                git pull --rebase --stat $upstream
+            fi
+            popd >/dev/null
         fi
-        popd >/dev/null
-    fi
+    done
+}
 
-    if [[ -d "${HOME}/.zsh/.git/" ]]; then
-        pushd "${HOME}/.zsh/" >/dev/null
-        current_br=`git branch | grep '*' | tr -d '* '`
-        remote=`git remote | cut -f 1`
-        have_upstream=`git remote | grep 'upstream'`
-        if [[ "$current_br" == "master" ]]; then
-            echo "Pulling from $remote"
-            git pull "$remote"
-        elif [[ -z "$have_upstream" ]]; then
-            echo "~/.zsh don't have remote upstream. Not updating."
-        else
-            echo "Fetching upstream..."
-            git fetch upstream
-            echo "Rebasing upstream..."
-            git rebase upstream
-        fi
-        popd >/dev/null
+
+## Auto updates
+function check-update {
+    [[ -z "$my_zsh_check_updates_cycle" ]] && my_zsh_check_updates_cycle=7
+    is_old=`find "${HOME}/.zsh" -name ".zshrc" -mtime +$my_zsh_check_updates_cycle`
+    if [[ -n "$is_old" ]]; then
+        while true; do
+            echo -n "Do you want to check for updates for robturtle's zsh config? [y/n]: "
+            read ans
+            case $ans in
+                [Yy]* ) yang-update; break;;
+                [Nn]* ) break;;
+                * ) echo "Please answer y or n.";;
+            esac
+        done
     fi
+    touch "${HOME}/.zsh/.zshrc"
 }

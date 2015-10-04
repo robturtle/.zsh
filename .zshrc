@@ -83,16 +83,29 @@ HIST_STAMPS="mm/dd/yyyy"
 #
 # wd bookmarks dirs
 plugins=(git brew dircycle dirhistory git-extras wd mvn)
-source $ZSH/oh-my-zsh.sh
 
 MY_DOT_ZSH="${HOME}/.zsh/"
+custom="${HOME}/.zsh.my.sh"
 
-my_zsh_mod=(env alias func python)
-for module in $my_zsh_mod; do
+# Please always put env at the first place
+source $ZSH/oh-my-zsh.sh
+
+my_zsh_mod=(python)
+for module in env alias; do
     source "${MY_DOT_ZSH}/${module}.rc.sh"
 done
 
-custom="${HOME}/.zsh/.zsh.my"
 if [[ -f "$custom" ]]; then
-    souce "$custom"
+    source "$custom"
 fi
+
+# Please remain this calling order
+for module in init func; do
+    source "${MY_DOT_ZSH}/${module}.rc.sh"
+done
+
+# check and update
+for repo in $HOME_GIT_REPOS; do
+    MY_GIT_REPOS+=("${HOME}/$repo")
+done
+check-update
