@@ -1,0 +1,1 @@
+/Users/jeremy/git/linux_config/.percol.d
