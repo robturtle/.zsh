@@ -102,3 +102,39 @@ function ff {
     echo ${cli}
     echo -n ${cli} |pclip;
 }
+
+## Update all my repos
+function yang-update {
+    if [[ -d "${HOME}/.emacs.d/.git/" ]]; then
+        pushd "${HOME}/.emacs.d/" >/dev/null
+        have_upstream=`git branch | grep 'upstream'`
+        if [[ -z "$have_upstream" ]]; then
+            echo "~/.emacs.d don't have branch upstream. Not updating."
+        else
+            echo "Fetching upstream..."
+            git fetch upstream
+            echo "Rebasing upstream..."
+            git rebase upstream
+        fi
+        popd >/dev/null
+    fi
+
+    if [[ -d "${HOME}/.zsh/.git/" ]]; then
+        pushd "${HOME}/.zsh/" >/dev/null
+        current_br=`git branch | grep '*' | tr -d '* '`
+        remote=`git remote | cut -f 1`
+        have_upstream=`git branch | grep 'upstream'`
+        if [[ "$current_br" == "master" ]]; then
+            echo "Pulling from $remote"
+            git pull "$remote"
+        elif [[ -z "$have_upstream" ]]; then
+            echo "~/.zsh don't have branch upstream. Not updating."
+        else
+            echo "Fetching upstream..."
+            git fetch upstream
+            echo "Rebasing upstream..."
+            git rebase upstream
+        fi
+        popd >/dev/null
+    fi
+}
