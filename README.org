@@ -7,9 +7,9 @@ The special fonts is to support the pertty display of powerline theme like:
 
 Install the powerline fonts following instructions below:
 
-First, Download and install from [[https://github.com/powerline/fonts/][here]]
+1. First, Download and install fonts from [[https://github.com/powerline/fonts/][here]]
+2. Then, configure your [[https://www.iterm2.com/][iTerm2]] fonts settings
 
-Then, configure your [[https://www.iterm2.com/][iTerm2]] fonts settings
 - iTerm > Preferences > Profile > Text :: change both =Regular Font= and =Non-ASCII Font=.
 
 [[https://www.dropbox.com/s/7pbuhvb8m9a6zf0/iterm-fonts-settings.png?raw=1][https://www.dropbox.com/s/7pbuhvb8m9a6zf0/iterm-fonts-settings.png?raw=1]]
@@ -27,11 +27,11 @@ To enbale this, configure your iTerm2 at:
 This is based on [[https://github.com/robbyrussell/oh-my-zsh][Oh-my-zsh]], if you didn't installed it or =~/.oh-my-zsh/= is not found,
 the install script will install it automatically.
 
-*NOTE*: If you haven't installed =oh-my-zsh=, the =oh-my-zsh= installer will run a new
-zsh shell after it finished. Please press =Ctrl-D= to quit this shell to make the =INSTALL.sh=
-continue.
+*NOTE*: If you haven't install =oh-my-zsh=, the =oh-my-zsh= installer will run a new
+zsh shell after the installation finished. Please press =Ctrl-D= to quit this shell to
+make the =INSTALL.sh= continue.
 
-*NOTE*: If you didn't installed the special fonts metioned above, my default powerline theme will
+*NOTE*: If you didn't install the special fonts metioned above, my default powerline theme will
 not display properly.
 
 * Custom settings
@@ -41,6 +41,16 @@ there are few variable you may be interested to change it:
 - DEFAULT_USER :: tell zsh your default user's name so that you can log in without prompting current username
 - INSTALLER :: the default is "brew install" for Mac users. If you're a Linux user you must change this to
                your own package install command to make sure the auto-install facility works.
+
+The examples are:
+
+#+header: :tangle yes
+#+BEGIN_SRC sh
+  #!/bin/zsh
+  # file: ~/.zsh.my.sh
+  export DEFAULT_USER=jack
+  export INSTALLER='apt-get install'
+#+END_SRC
 
 * Added Functions
 
@@ -113,6 +123,7 @@ in =man=, =less=, these vim style key bindings are also usable.
 | :delete | delete marked files      |
 | :mkdir  | make directory           |
 | zh      | toggle show hidden files |
+| q       | quit                     |
 
 * git
 | name    | function                  | rank   |
