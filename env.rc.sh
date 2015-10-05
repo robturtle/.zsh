@@ -17,17 +17,8 @@ export EDITOR="vim"
 # languages
 export PYTHON="python2.7"
 
-# platform
-export PLATFORM=`uname -s`
-
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# path
-for p in ".cabal/bin"
-do
-    export PATH="${PATH}:${HOME}/${p}"
-done
 
 # updates
 export my_zsh_check_updates_cycle=7
