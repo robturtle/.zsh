@@ -113,7 +113,7 @@ done
 # my own modules
 # Currently available: python java
 for module in $my_zsh_mod; do
-    source "${MY_DOT_ZSH}/${module}.rc.sh"
+    source "${MY_DOT_ZSH}/plugins/${module}.rc.sh"
 done
 
 # check and update

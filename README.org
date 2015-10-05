@@ -43,6 +43,8 @@ there are few variable you may be interested to change it:
 - DEFAULT_USER :: tell zsh your default user's name so that you can log in without prompting current username
 - INSTALLER :: the default is "brew install" for Mac users. If you're a Linux user you must change this to
                your own package install command to make sure the auto-install facility works.
+- my_zsh_mod :: specify plugins you want to load. You can view all available plugins in =plugins= folder.
+
 
 The examples are:
 
@@ -51,7 +53,8 @@ The examples are:
   #!/bin/zsh
   # file: ~/.zsh.my.sh
   export DEFAULT_USER=jack
-  export INSTALLER='apt-get install'
+  export INSTALLER='apt-get install' # Mac user don't have to set this
+  my_zsh_mod=(python java) # don't use export on lists
 #+END_SRC
 
 * Added Functions
