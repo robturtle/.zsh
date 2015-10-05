@@ -111,8 +111,7 @@ done
 
 # 4. plugins
 # my own modules
-my_zsh_mod=(python java)
-
+# Currently available: python java
 for module in $my_zsh_mod; do
     source "${MY_DOT_ZSH}/${module}.rc.sh"
 done
