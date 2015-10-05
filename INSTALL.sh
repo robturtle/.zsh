@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 echo -n "Check oh-my-zsh ... "
 if [[ -d "${HOME}/.oh-my-zsh/" ]]; then
     echo "Found."

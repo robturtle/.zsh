@@ -24,7 +24,21 @@ To enbale this, configure your iTerm2 at:
 
 * Installation
 
-In the =.zsh= directory, call the =./INSTALL.sh= to install it.
+In the =.zsh= directory, call the =./INSTALL.sh= to install it. The best practice is
+install =.zsh= folder under your home directory. Here is an example:
+
+#+header: :tangle yes
+#+BEGIN_SRC sh
+  cd ~
+  git clone git@github.com:robturtle/.zsh.git
+  cd .zsh
+  chmod +x INSTALL.sh
+  ./INSTALL.sh
+
+  # If you haven't install oh-my-zsh yet, you need to
+  # press `Ctirl+D' key to quit the zsh shell and make
+  # our INSTALL.sh continue
+#+END_SRC
 
 This is based on [[https://github.com/robbyrussell/oh-my-zsh][Oh-my-zsh]], if you didn't installed it or =~/.oh-my-zsh/= is not found,
 the install script will install it automatically.
