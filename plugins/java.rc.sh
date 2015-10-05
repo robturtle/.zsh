@@ -1,6 +1,7 @@
 #!/bin/zsh
 
-export MY_JAVA_CP="${HOME}/include/java/"
+[[ -z "$MY_JAVA_CP" ]] && export MY_JAVA_CP="${HOME}/include/java/"
+[[ -d "$MY_JAVA_CP" ]] || mkdir -p "$MY_JAVA_CP"
 
 function exists-jar {
     test -f "${MY_JAVA_CP}/$1.jar"
