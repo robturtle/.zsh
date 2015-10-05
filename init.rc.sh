@@ -11,7 +11,10 @@ function initinstall {
     fi
 }
 
-if [[ "$PLATFORM" == 'Darwin' && "$INSTALLER" == 'brew' ]]; then
+# platform
+export PLATFORM=`uname -s`
+
+if [[ "$PLATFORM" == 'Darwin' && `echo "$INSTALLER" | cut -d " " -f 1` == 'brew' ]]; then
     initinstall brew ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 

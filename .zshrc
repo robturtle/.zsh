@@ -91,8 +91,7 @@ source $ZSH/oh-my-zsh.sh
 MY_DOT_ZSH="${HOME}/.zsh/"
 
 # 1. basic variable assignments
-# Please always put env at the first place
-for module in env alias; do
+for module in env alias init; do
     source "${MY_DOT_ZSH}/${module}.rc.sh"
 done
 
@@ -104,8 +103,8 @@ if [[ -f "$custom" ]]; then
 fi
 
 # 3. function definitions. Depends on former variable settings
-# Please remain this calling order
-for module in init func; do
+# That's why called after loading user variables
+for module in func; do
     source "${MY_DOT_ZSH}/${module}.rc.sh"
 done
 
