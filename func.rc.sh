@@ -106,7 +106,7 @@ function yang-update {
 ## Auto updates
 function check-update {
     [[ -z "$my_zsh_check_updates_cycle" ]] && my_zsh_check_updates_cycle=7
-    is_old=`find "${HOME}/.zsh" -name ".zshrc" -mtime +$my_zsh_check_updates_cycle`
+    is_old=`find "${MY_DOT_ZSH}" -name ".zshrc" -mtime +$my_zsh_check_updates_cycle`
     if [[ -n "$is_old" ]]; then
         while true; do
             echo -n "Do you want to check for updates for robturtle's zsh config? [y/n]: "
@@ -118,5 +118,5 @@ function check-update {
             esac
         done
     fi
-    touch "${HOME}/.zsh/.zshrc"
+    touch "${MY_DOT_ZSH}/.zshrc"
 }
