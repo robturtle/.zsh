@@ -115,14 +115,18 @@ I use =solarized-light= and =solarized-dark= theme in the iTerm2. They are autom
 downloaded into your =~/Download/= directory when you run the =INSTALL.sh=. Double click
 them you can import this color theme into the iTerm2.
 
+[[https://www.dropbox.com/s/felgtfctujkuafu/iterm-import-colors.png?raw=1][https://www.dropbox.com/s/felgtfctujkuafu/iterm-import-colors.png?raw=1]]
+
+[[https://www.dropbox.com/s/jv9jyuadw5p2j6l/iterm-import-colors-success.png?raw=1][https://www.dropbox.com/s/jv9jyuadw5p2j6l/iterm-import-colors-success.png?raw=1]]
+
 To switch to this theme, go to iTerm2's preference:
 
 - iTerm > Preferences > Profile > Colors > Load Presets :: And choose "Solarized Light" or "Solarized Dark"
 
+[[https://www.dropbox.com/s/8nshb4cy0ekjbfz/iterm-colors.png?raw=1][https://www.dropbox.com/s/8nshb4cy0ekjbfz/iterm-colors.png?raw=1]]
+
 As an advise, I suggest you only use the dark color theme when the environment is dark or you have a
 monitor with bad quality.
-
-[[https://www.dropbox.com/s/8nshb4cy0ekjbfz/iterm-colors.png?raw=1][https://www.dropbox.com/s/8nshb4cy0ekjbfz/iterm-colors.png?raw=1]]
 
 * Keyboard shortcuts
 ** For newbies
