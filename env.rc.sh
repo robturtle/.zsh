@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 # Environment
 
 # You may need to manually set your language environment

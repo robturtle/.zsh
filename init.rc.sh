@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 function exists { which $1 &> /dev/null }
 
@@ -16,6 +16,7 @@ export PLATFORM=`uname -s`
 
 if [[ "$PLATFORM" == 'Darwin' && `echo "$INSTALLER" | cut -d " " -f 1` == 'brew' ]]; then
     initinstall brew ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    initinstall zsh brew install zsh
 fi
 
 initinstall easy_install sudo curl https://bootstrap.pypa.io/ez_setup.py -o - | ${PYTHON}

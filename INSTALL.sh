@@ -1,4 +1,13 @@
 #!/bin/bash
+if ! zsh --version; then
+    echo "zsh not found. Installing ..."
+    source ./init.rc.sh
+elif [[ "$SHELL" != `which zsh` || $(basename `echo $0 | tr -d '-'`) != "zsh" ]]; then
+    echo "Now change zsh as your default shell ..."
+    export SHELL=`which zsh`
+    chsh -s `which zsh`
+fi
+
 echo -n "Check oh-my-zsh ... "
 if [[ -d "${HOME}/.oh-my-zsh/" ]]; then
     echo "Found."
@@ -15,10 +24,10 @@ do
     echo "Now install my $link"
     differ=`diff "${PWD}/$link" "${HOME}/$link" 2>/dev/null`
     if [[ "$?" != "0" || -n "$differ" ]]; then
-        [[ -f "${HOME}/$link" || -d "${HOME}/$link" ]] && mv "${HOME}/$link" "${HOME}/$link.bk"
-        echo "Creating link to ~/$link"
+        [[ -f "${HOME}/$link" || -d "${HOME}/$link" ]] && mv "${HOME}/$link" "${HOME}/${link}.bk"
+        echo "Creating link from ${PWD}/$link to ${HOME}/$link"
         echo
-        ln -s "${PWD}/$link" "${HOME}"
+        ln -s "${PWD}/$link" "${HOME}/$link"
     else
         echo "$link is already up-to-date."
     fi

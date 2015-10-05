@@ -1,3 +1,6 @@
+This is my collection of zsh configurations. And since dozens of my friends are not familiar
+with the shell. So I make many newbie tips along this document.
+
 * Prerequisites
 
 ** Special fonts
@@ -24,6 +27,8 @@ To enbale this, configure your iTerm2 at:
 
 * Installation
 
+*NOTE* please install =zsh= first.
+
 In the =.zsh= directory, call the =./INSTALL.sh= to install it. The best practice is
 install =.zsh= folder under your home directory. Here is an example:
 
@@ -34,11 +39,12 @@ install =.zsh= folder under your home directory. Here is an example:
   cd .zsh
   chmod +x INSTALL.sh
   ./INSTALL.sh
-
   # If you haven't install oh-my-zsh yet, you need to
-  # press `Ctirl+D' key to quit the zsh shell and make
+  # press `Ctirl+D' key in the newly automatically opened zsh-shell to make
   # our INSTALL.sh continue
 #+END_SRC
+
+[[https://www.dropbox.com/s/jvay2wa8jhzt4eg/install-howto.png?raw=1][https://www.dropbox.com/s/jvay2wa8jhzt4eg/install-howto.png?raw=1]]
 
 This is based on [[https://github.com/robbyrussell/oh-my-zsh][Oh-my-zsh]], if you didn't installed it or =~/.oh-my-zsh/= is not found,
 the install script will install it automatically.
@@ -49,6 +55,8 @@ make the =INSTALL.sh= continue.
 
 *NOTE*: If you didn't install the special fonts metioned above, my default powerline theme will
 not display properly.
+
+After the installation, you can simply restart your terminal to see the changes.
 
 * Custom settings
 By default, you can create a file named =~/.zsh.my.sh= and put your settings there. Typically
