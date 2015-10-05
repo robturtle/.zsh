@@ -16,7 +16,6 @@ export EDITOR="vim"
 
 # languages
 export PYTHON="python2.7"
-export MY_JAVA_LIB="${HOME}/include/java/"
 
 # platform
 export PLATFORM=`uname -s`
@@ -28,11 +27,6 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 for p in ".cabal/bin"
 do
     export PATH="${PATH}:${HOME}/${p}"
-done
-
-# Java
-for jar in "${MY_JAVA_LIB}/*.jar"; do
-    export CLASSPATH="$jar:$CLASSPATH"
 done
 
 # updates
