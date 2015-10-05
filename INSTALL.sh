@@ -1,4 +1,15 @@
 #!/bin/bash
+
+[[ -d "${HOME}/Downloads/" ]] || mkdir "${HOME}/Downloads/"
+themeweb='https://raw.githubusercontent.com/altercation/solarized/master/iterm2-colors-solarized/${theme}.itermcolors'
+for theme in "Solarized Light" "Solarized Dark"
+do
+    if [[ ! -f "${HOME}/Downloads/${theme}.itermcolors" ]]; then
+        curl  `eval "echo $themeweb | sed 's/ /%20/g'"`\
+             > "${HOME}/Downloads/${theme}.itermcolors"
+    fi
+done
+
 if ! zsh --version; then
     echo "zsh not found. Installing ..."
     source ./init.rc.sh

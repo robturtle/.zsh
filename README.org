@@ -2,22 +2,7 @@ This is my collection of zsh configurations. And since dozens of my friends are 
 with the shell. So I make many newbie tips along this document.
 
 * Prerequisites
-
-** Special fonts
-The special fonts is to support the pertty display of powerline theme like:
-
-[[https://www.dropbox.com/s/bty5zanck06jacj/zsh-powerline.png?raw=1][https://www.dropbox.com/s/bty5zanck06jacj/zsh-powerline.png?raw=1]]
-
-Install the powerline fonts following instructions below:
-
-1. First, Download and install fonts from [[https://github.com/powerline/fonts/][here]]
-2. Then, configure your [[https://www.iterm2.com/][iTerm2]] fonts settings
-
-- iTerm > Preferences > Profile > Text :: change both =Regular Font= and =Non-ASCII Font=.
-
-[[https://www.dropbox.com/s/7pbuhvb8m9a6zf0/iterm-fonts-settings.png?raw=1][https://www.dropbox.com/s/7pbuhvb8m9a6zf0/iterm-fonts-settings.png?raw=1]]
-
-** Meta settings
+** Meta Key
 Many great shell key bindings are inheritant from Emacs and hence the Meta key is of good use.
 To enbale this, configure your iTerm2 at:
 
@@ -32,6 +17,10 @@ To enbale this, configure your iTerm2 at:
 In the =.zsh= directory, call the =./INSTALL.sh= to install it. The best practice is
 install =.zsh= folder under your home directory. Here is an example:
 
+*NOTE*: If you haven't install =oh-my-zsh=, the =oh-my-zsh= installer will run a new
+zsh shell after the installation finished. Please press =Ctrl-D= to quit this shell to
+make the =INSTALL.sh= continue.
+
 #+header: :tangle yes
 #+BEGIN_SRC sh
   cd ~
@@ -39,22 +28,12 @@ install =.zsh= folder under your home directory. Here is an example:
   cd .zsh
   chmod +x INSTALL.sh
   ./INSTALL.sh
-  # If you haven't install oh-my-zsh yet, you need to
-  # press `Ctirl+D' key in the newly automatically opened zsh-shell to make
-  # our INSTALL.sh continue
 #+END_SRC
 
 [[https://www.dropbox.com/s/jvay2wa8jhzt4eg/install-howto.png?raw=1][https://www.dropbox.com/s/jvay2wa8jhzt4eg/install-howto.png?raw=1]]
 
 This is based on [[https://github.com/robbyrussell/oh-my-zsh][Oh-my-zsh]], if you didn't installed it or =~/.oh-my-zsh/= is not found,
 the install script will install it automatically.
-
-*NOTE*: If you haven't install =oh-my-zsh=, the =oh-my-zsh= installer will run a new
-zsh shell after the installation finished. Please press =Ctrl-D= to quit this shell to
-make the =INSTALL.sh= continue.
-
-*NOTE*: If you didn't install the special fonts metioned above, my default powerline theme will
-not display properly.
 
 After the installation, you can simply restart your terminal to see the changes.
 
@@ -101,63 +80,106 @@ The second one is a shell history searching utility which make benifits from an 
 | ff     | file partial searching | Helper |
 | pclip  | stdin into clipboard   | Helper |
 
-* For newbies
+* Powerline Theme
+** Special fonts
+The special fonts is to support the pertty display of powerline theme like:
 
-** Common Emacs shortcuts in shell
+[[https://www.dropbox.com/s/bty5zanck06jacj/zsh-powerline.png?raw=1][https://www.dropbox.com/s/bty5zanck06jacj/zsh-powerline.png?raw=1]]
 
-Most of the shell supports Emacs key bindings by default.
+Install the powerline fonts following instructions below:
 
-Let 'C' stands for Ctrl, 'M' stands for 'Meta'.
+1. First, Download and install fonts from [[https://github.com/powerline/fonts/][here]]
+2. Then, configure your [[https://www.iterm2.com/][iTerm2]] fonts settings
 
-| key           | function                  | mutation    | function |
-|---------------+---------------------------+-------------+----------|
-| C-A           | beginning of line         |             |          |
-| C-E           | *E*-nd of line            |             |          |
-| C-K           | *K*-ill to end of line    |             |          |
-| C-U           | *U*-ntype words           |             |          |
-| C-D           | *D*-elete forward         | M-D         | one word |
-| BACKSPACE/C-H | delete backward           | M-BACKSPACE | one word |
-| C-F           | move *F*-orward one char  | M-F         | one word |
-| C-B           | move *B*-ackward one char | M-B         | one word |
-| C-P           | *P*-revious command       |             |          |
-| C-N           | *N*-ext command           |             |          |
-| C-L           | clear screen              |             |          |
+- iTerm > Preferences > Profile > Text :: change both =Regular Font= and =Non-ASCII Font=.
 
-Being familiar with the Meta shortcuts will makes your shell using more effective.
+[[https://www.dropbox.com/s/7pbuhvb8m9a6zf0/iterm-fonts-settings.png?raw=1][https://www.dropbox.com/s/7pbuhvb8m9a6zf0/iterm-fonts-settings.png?raw=1]]
 
-** Common vim shorcuts in shell
+** Change the theme
+Now you can switch your theme into this pretty powrline theme. In your =~/.zsh.my.rc=, add
+this line:
 
-in =man=, =less=, these vim style key bindings are also usable.
+#+header: :tangle yes
+#+BEGIN_SRC sh
+  # file: ~/.zsh.my.sh
+  ... # all other variables
+  ZSH_THEME="agnoster"
+#+END_SRC
 
-| key     | function     |
-|---------+--------------|
-| j       | down         |
-| k       | up           |
-| h       | left         |
-| l       | right        |
-| C-D     | page *D*-own |
-| C-U     | page *U*-p   |
-| gg      | first line   |
-| G       | last line    |
-| slash   | search       |
+Then restart your shell.
 
-* ranger
+* iTerm2 Color theme
+I use =solarized-light= and =solarized-dark= theme in the iTerm2. They are automatically
+downloaded into your =~/Download/= directory when you run the =INSTALL.sh=. Double click
+them you can import this color theme into the iTerm2.
 
-| key     | function                 |
-|---------+--------------------------|
-| SPACE   | mark/unmark              |
-| m       | add bookmark             |
-| `       | goto bookmark            |
-| j/k/h/l | navigates                |
-| yy      | copy marked files        |
-| dd      | cut marked files         |
-| pp      | paste                    |
-| :delete | delete marked files      |
-| :mkdir  | make directory           |
-| zh      | toggle show hidden files |
-| q       | quit                     |
+To switch to this theme, go to iTerm2's preference:
 
-* git
-| name    | function                  | rank   |
-|---------+---------------------------+--------|
-| gitkall | show all branches in gitk | Helper |
+- iTerm > Preferences > Profile > Colors > Load Presets :: And choose "Solarized Light" or "Solarized Dark"
+
+As an advise, I suggest you only use the dark color theme when the environment is dark or you have a
+monitor with bad quality.
+
+[[https://www.dropbox.com/s/8nshb4cy0ekjbfz/iterm-colors.png?raw=1][https://www.dropbox.com/s/8nshb4cy0ekjbfz/iterm-colors.png?raw=1]]
+
+* Keyboard shortcuts
+** For newbies
+
+*** Common Emacs shortcuts in shell
+
+ Most of the shell supports Emacs key bindings by default.
+
+ Let 'C' stands for Ctrl, 'M' stands for 'Meta'.
+
+ | key           | function                  | mutation    | function |
+ |---------------+---------------------------+-------------+----------|
+ | C-A           | beginning of line         |             |          |
+ | C-E           | *E*-nd of line            |             |          |
+ | C-K           | *K*-ill to end of line    |             |          |
+ | C-U           | *U*-ntype words           |             |          |
+ | C-D           | *D*-elete forward         | M-D         | one word |
+ | BACKSPACE/C-H | delete backward           | M-BACKSPACE | one word |
+ | C-F           | move *F*-orward one char  | M-F         | one word |
+ | C-B           | move *B*-ackward one char | M-B         | one word |
+ | C-P           | *P*-revious command       |             |          |
+ | C-N           | *N*-ext command           |             |          |
+ | C-L           | clear screen              |             |          |
+
+ Being familiar with the Meta shortcuts will makes your shell using more effective.
+
+*** Common vim shorcuts in shell
+
+ in =man=, =less=, these vim style key bindings are also usable.
+
+ | key     | function     |
+ |---------+--------------|
+ | j       | down         |
+ | k       | up           |
+ | h       | left         |
+ | l       | right        |
+ | C-D     | page *D*-own |
+ | C-U     | page *U*-p   |
+ | gg      | first line   |
+ | G       | last line    |
+ | slash   | search       |
+
+** ranger
+
+ | key     | function                 |
+ |---------+--------------------------|
+ | SPACE   | mark/unmark              |
+ | m       | add bookmark             |
+ | `       | goto bookmark            |
+ | j/k/h/l | navigates                |
+ | yy      | copy marked files        |
+ | dd      | cut marked files         |
+ | pp      | paste                    |
+ | :delete | delete marked files      |
+ | :mkdir  | make directory           |
+ | zh      | toggle show hidden files |
+ | q       | quit                     |
+
+** git
+ | name    | function                  | rank   |
+ |---------+---------------------------+--------|
+ | gitkall | show all branches in gitk | Helper |
