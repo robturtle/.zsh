@@ -15,10 +15,10 @@ Install the powerline fonts following instructions below:
 [[https://www.dropbox.com/s/7pbuhvb8m9a6zf0/iterm-fonts-settings.png?raw=1][https://www.dropbox.com/s/7pbuhvb8m9a6zf0/iterm-fonts-settings.png?raw=1]]
 
 ** Meta settings
-Many great shell key bindings are inheritant from Emacs and hance the Meta key is of good use.
+Many great shell key bindings are inheritant from Emacs and hence the Meta key is of good use.
 To enbale this, configure your iTerm2 at:
 
-- iTerm > Preferences > Profile > Keys :: both options to =+Esc=
+- iTerm > Preferences > Profile > Keys :: both options to =+Esc=. Now option keys act like Meta keys.
 
 [[https://www.dropbox.com/s/rbhpkiwlo8wx09f/iterm-meta-key.png?raw=1][https://www.dropbox.com/s/rbhpkiwlo8wx09f/iterm-meta-key.png?raw=1]]
 
@@ -81,19 +81,21 @@ Most of the shell supports Emacs key bindings by default.
 
 Let 'C' stands for Ctrl, 'M' stands for 'Meta'.
 
-| key           | function                  | mutation | function |
-|---------------+---------------------------+----------+----------|
-| C-A           | beginning of line         |          |          |
-| C-E           | *E*-nd of line            |          |          |
-| C-K           | *K*-ill to end of line    |          |          |
-| C-U           | *U*-ntype words           |          |          |
-| C-D           | *D*-elete forward         | M-D      | one word |
-| BACKSPACE/C-H | delete backward           |          |          |
-| C-F           | move *F*-orward one char  | M-F      | one word |
-| C-B           | move *B*-ackward one char | M-B      | one word |
-| C-P           | *P*-revious command       |          |          |
-| C-N           | *N*-ext command           |          |          |
-| C-L           | clear screen              |          |          |
+| key           | function                  | mutation    | function |
+|---------------+---------------------------+-------------+----------|
+| C-A           | beginning of line         |             |          |
+| C-E           | *E*-nd of line            |             |          |
+| C-K           | *K*-ill to end of line    |             |          |
+| C-U           | *U*-ntype words           |             |          |
+| C-D           | *D*-elete forward         | M-D         | one word |
+| BACKSPACE/C-H | delete backward           | M-BACKSPACE | one word |
+| C-F           | move *F*-orward one char  | M-F         | one word |
+| C-B           | move *B*-ackward one char | M-B         | one word |
+| C-P           | *P*-revious command       |             |          |
+| C-N           | *N*-ext command           |             |          |
+| C-L           | clear screen              |             |          |
+
+Being familiar with the Meta shortcuts will makes your shell using more effective.
 
 ** Common vim shorcuts in shell
 
