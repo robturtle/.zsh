@@ -47,6 +47,7 @@ there are few variable you may be interested to change it:
 - my_zsh_mod :: specify plugins you want to load. You can view all available plugins in =plugins= folder.
 - MY_JAVA_CP :: used in java plugin. indicates where you preferred to store downloaded jar files.
             default value is "~/include/java/"
+- ZSH_THEME :: my favorite is "agnoster" but it need fonts installed. read the [[*Powerline Theme][Powerline Theme]] below for details.
 
 
 The examples are:
@@ -59,6 +60,7 @@ The examples are:
   export INSTALLER='apt-get install' # Mac user don't have to set this
   my_zsh_mod=(python java) # don't use export on lists
   export MY_JAVA_CP='~/include/java/'
+  ZSH_THEME="agnoster"
 #+END_SRC
 
 * Added Functions
