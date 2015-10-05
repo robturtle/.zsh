@@ -84,27 +84,20 @@ HIST_STAMPS="mm/dd/yyyy"
 # wd bookmarks dirs
 plugins=(git brew dircycle dirhistory git-extras wd mvn)
 
-# 0. oh-my-zsh
+# 0. user variables
+custom="${HOME}/.zsh.my.sh"
+if [[ -f "$custom" ]]; then
+    source "$custom"
+fi
+
+# 1. oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 ### My .zsh variables
 MY_DOT_ZSH="${HOME}/.zsh/"
 
-# 1. basic variable assignments
-for module in env alias init; do
-    source "${MY_DOT_ZSH}/${module}.rc.sh"
-done
-
-# 2. user variables
-custom="${HOME}/.zsh.my.sh"
-
-if [[ -f "$custom" ]]; then
-    source "$custom"
-fi
-
-# 3. function definitions. Depends on former variable settings
-# That's why called after loading user variables
-for module in func; do
+# 2. basic variable assignments
+for module in env alias init func; do
     source "${MY_DOT_ZSH}/${module}.rc.sh"
 done
 
@@ -115,7 +108,7 @@ for module in $my_zsh_mod; do
     source "${MY_DOT_ZSH}/plugins/${module}.rc.sh"
 done
 
-# check and update
+# 5. check and update
 for repo in $HOME_GIT_REPOS; do
     MY_GIT_REPOS+=("${HOME}/$repo")
 done
