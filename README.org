@@ -56,10 +56,10 @@ The examples are:
 #+BEGIN_SRC sh
   #!/bin/zsh
   # file: ~/.zsh.my.sh
-  export DEFAULT_USER=jack
-  export INSTALLER='apt-get install' # Mac user don't have to set this
-  my_zsh_mod=(python java) # don't use export on lists
-  export MY_JAVA_CP='~/include/java/'
+  DEFAULT_USER=jack
+  INSTALLER='apt-get install' # Mac user don't have to set this
+  my_zsh_mod=(python java)
+  MY_JAVA_CP='~/include/java/'
   ZSH_THEME="agnoster"
 #+END_SRC
 
