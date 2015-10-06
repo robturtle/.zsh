@@ -105,7 +105,7 @@ function yang-update {
 
 ## Auto updates
 function check-update {
-    [[ -z "$my_zsh_check_updates_cycle" ]] && my_zsh_check_updates_cycle=7
+    : ${my_zsh_check_updates_cycle:=7}
     is_old=`find "${MY_DOT_ZSH}" -name ".zshrc" -mtime +$my_zsh_check_updates_cycle`
     if [[ -n "$is_old" ]]; then
         while true; do
