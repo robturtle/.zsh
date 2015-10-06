@@ -82,7 +82,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # git local-commits	list unpushed commits on the local branch
 #
 # wd bookmarks dirs
-plugins=(git brew dircycle dirhistory git-extras wd mvn)
+plugins=(git brew dircycle dirhistory git-extras wd mvn zsh-completions zsh-syntax-highlighting)
 
 # 0. user variables
 custom="${HOME}/.zsh.my.sh"
@@ -112,4 +112,9 @@ done
 for repo in $HOME_GIT_REPOS; do
     MY_GIT_REPOS+=("${HOME}/$repo")
 done
+for plugin in "$ZSH"/custom/plugins/*; do
+    MY_GIT_REPOS+=("$plugin")
+done
 check-update
+
+autoload -U compinit && compinit

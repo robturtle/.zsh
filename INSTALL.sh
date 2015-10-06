@@ -13,7 +13,7 @@ done
 if ! zsh --version; then
     echo "zsh not found. Installing ..."
     source ./init.rc.sh
-elif [[ "$SHELL" != `which zsh` || $(basename `echo $0 | tr -d '-'`) != "zsh" ]]; then
+elif [[ `basename "$SHELL"` != `basename $(which zsh)` ]]; then
     echo "Now change zsh as your default shell ..."
     export SHELL=`which zsh`
     chsh -s `which zsh`
@@ -29,6 +29,12 @@ else
     echo "Done."
     echo
 fi
+
+[[ -d "~/.oh-my-zsh/custom/plugins/zsh-completions" ]] \
+    || git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+
+[[ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]] \
+    || git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 for link in .zshrc .percol.d
 do
