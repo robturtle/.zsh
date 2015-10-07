@@ -57,10 +57,10 @@ The examples are:
   #!/bin/zsh
   # file: ~/.zsh.my.sh
   DEFAULT_USER=jack
-  INSTALLER='apt-get install' # Mac user don't have to set this
+  INSTALLER='sudo apt-get install' # Mac user don't have to set this
   my_zsh_mod=(python java)
   MY_JAVA_CP='~/include/java/'
-  ZSH_THEME="agnoster"
+  ZSH_THEME="agnoster" # make sure you've installed the specail fonts before setting it
 #+END_SRC
 
 * Added Functions
