@@ -22,3 +22,7 @@
 
 # updates
 : ${my_zsh_check_updates_cycle:=7}
+
+# FIX: since from some version, easy_insall didn't put bin files into
+#      /usr/local/bin. So I will manuall put python apps into PATH
+export PATH=${PATH}:/Library/Frameworks/Python.framework/Versions/Current/bin
