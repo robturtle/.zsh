@@ -36,7 +36,7 @@ fi
 [[ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]] \
     || git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
-for link in .zshrc .percol.d
+for link in .zshrc .percol.d .gitconfig
 do
     echo "Now install my $link"
     differ=`diff "${PWD}/$link" "${HOME}/$link" 2>/dev/null`
