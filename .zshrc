@@ -82,7 +82,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # git local-commits	list unpushed commits on the local branch
 #
 # wd bookmarks dirs
-plugins=(git brew dircycle dirhistory git-extras wd mvn zsh-completions zsh-syntax-highlighting)
+plugins=(git brew dircycle dirhistory git-extras wd mvn)
 
 # 0. user variables
 custom="${HOME}/.zsh.my.sh"
@@ -97,7 +97,7 @@ source $ZSH/oh-my-zsh.sh
 MY_DOT_ZSH="${HOME}/.zsh/"
 
 # 2. basic variable assignments
-for module in env alias init func; do
+for module in alias init func; do
     source "${MY_DOT_ZSH}/${module}.rc.sh"
 done
 
