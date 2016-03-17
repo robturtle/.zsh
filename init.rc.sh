@@ -7,7 +7,7 @@ function initinstall {
     if [[ "$?" != "0" ]]; then
         echo "$1 not installed. Installing ..."
         shift
-        "$@"
+        eval("$@")
     fi
 }
 

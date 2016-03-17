@@ -1,5 +1,5 @@
 initinstall docker $INSTALLER docker
 
 if [[ "$PLATFORM" == 'Darwin' ]]; then
-    $INSTALLER docker-machine
+    initinstall docker-machine $INSTALLER docker-machine
 fi
