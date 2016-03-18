@@ -7,7 +7,7 @@ function initinstall {
     if [[ "$?" != "0" ]]; then
         echo "$1 not installed. Installing ..."
         shift
-        eval("$@")
+        eval `echo $@`
     fi
 }
 
@@ -21,4 +21,4 @@ fi
 
 initinstall easy_install sudo curl https://bootstrap.pypa.io/ez_setup.py -o - | ${PYTHON}
 initinstall percol sudo easy_install percol
-eval "initinstall ranger ${INSTALLER} ranger"
+initinstall ranger ${INSTALLER} ranger
