@@ -11,13 +11,17 @@ do
     fi
 done
 
-if ! zsh --version 2>&1 >/dev/null; then
-    echo "zsh not found. Installing ..."
-    source ~/.zsh.my.sh
-    source ./.zshenv
-    source ./init.rc.sh
-elif [[ `basename "$SHELL"` != `basename $(which zsh)` ]]; then
-    echo "Now change zsh as your default shell ..."
+echo '#################################################'
+echo '# Installing prerequisites'
+echo '#################################################'
+source ~/.zsh.my.sh
+source ./.zshenv
+source ./init.rc.sh
+
+if [[ `basename "$SHELL"` != `basename $(which zsh)` ]]; then
+    echo '#################################################'
+    echo "# Now change zsh as your default shell ..."
+    echo '#################################################'
     export SHELL=`which zsh`
     chsh -s `which zsh`
 fi
@@ -27,18 +31,26 @@ if [[ -d "${HOME}/.oh-my-zsh/" ]]; then
     echo "Found."
 else
     echo "Not Found."
-    echo "Installing on-my-zsh"
+    echo '#################################################'
+    echo "# Installing on-my-zsh"
+    echo '#################################################'
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     echo "Done."
     echo
 fi
 
+echo '#################################################'
+echo "# Installing oh-my-zsh plugins"
+echo '#################################################'
 [[ -d "~/.oh-my-zsh/custom/plugins/zsh-completions" ]] \
-    || git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+    && git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 
 [[ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]] \
-    || git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    && git clone git://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
+echo '#################################################'
+echo "# Linking files"
+echo '#################################################'
 for link in .zshrc .percol.d .gitconfig .zshenv
 do
     echo "Now install my $link"
