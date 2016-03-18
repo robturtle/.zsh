@@ -1,6 +1,8 @@
 #!/bin/bash
 
-function exists { which $1 &> /dev/null }
+function exists {
+    which $1 &> /dev/null
+}
 
 function initinstall {
     exists $1
