@@ -4,7 +4,7 @@
 if [[ -z "${UNINSTALLER}" ]]; then
     echo -n "Tell me your command for removing packages (i.e. sudo apt-get remove): "
     read uninstaller
-    export UNINSTALLER=$uninstaller
+    export UNINSTALLER="$uninstaller"
     echo "$uninstaller" >> ~/.zsh.my.sh
 fi
 
@@ -15,6 +15,6 @@ function remove {
 remove zsh
 remove easy_install
 remove ranger
-pip uninstall percol
-rm `which pip`
+sudo pip uninstall percol
+sudo rm `which pip`
 rm -rf "${HOME}/.oh-my-zsh"
