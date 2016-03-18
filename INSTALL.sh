@@ -1,4 +1,43 @@
 #!/bin/bash
+echo '#################################################'
+echo '# Custom settings'
+echo '#################################################'
+[[ -f ~/.zsh.my.sh ]] && source ~/.zsh.my.sh
+
+function custom-set {
+    value=$(eval echo "$`eval echo $1`")
+    if [[ -z "$value" ]]; then
+        echo -n "Please input your $1 [$2]: "
+        eval "read $1"
+        value=$(eval echo "$`eval echo $1`")
+        [[ -z "$value" ]] && eval "$1='$2'"
+        if [[ -z "$3" ]]; then
+            echo "$1='$2'" >> ~/.zsh.my.sh
+        else
+            echo "$1=($2)" >> ~/.zsh.my.sh
+        fi
+    else
+        echo "The current setting of $1 is $value"
+    fi
+}
+
+custom-set DEFAULT_USER "$USER"
+if [[ "$PLATFORM" == 'Darwin' ]]; then
+    DEF_INS='brew install'
+else
+    DEF_INS='sudo apt-get install'
+fi
+custom-set INSTALLER "$DEF_INS"
+custom-set ZSH_THEME "bira"
+
+plugins=''
+for p in ./plugins/*.rc.sh; do
+    p=`basename $p`
+    p=${p%.*}
+    p=${p%.*}
+    plugins="$p $plugins"
+done
+custom-set my_zsh_mod "$plugins" is_list
 
 echo '#################################################'
 echo '# Installing prerequisites'
