@@ -22,6 +22,6 @@ fi
 
 initinstall zsh ${INSTALLER} zsh
 initinstall ${PYTHON} ${INSTALLER} ${PYTHON}
-initinstall easy_install sudo curl https://bootstrap.pypa.io/ez_setup.py -o - | ${PYTHON}
+initinstall easy_install 'sudo curl https://bootstrap.pypa.io/ez_setup.py -o - | ${PYTHON}'
 initinstall percol sudo easy_install percol
 initinstall ranger ${INSTALLER} ranger
