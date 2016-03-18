@@ -12,23 +12,21 @@ To enbale this, configure your iTerm2 at:
 
 * Installation
 
-*NOTE* please install =zsh= first.
-
 In the =.zsh= directory, call the =./INSTALL.sh= to install it. The best practice is
 install =.zsh= folder under your home directory. Here is an example:
-
-*NOTE*: If you haven't install =oh-my-zsh=, the =oh-my-zsh= installer will run a new
-zsh shell after the installation finished. Please press =Ctrl-D= to quit this shell to
-make the =INSTALL.sh= continue.
 
 #+header: :tangle yes
 #+BEGIN_SRC sh
   cd ~
-  git clone git@github.com:robturtle/.zsh.git
+  git clone https://github.com/robturtle/.zsh.git
   cd .zsh
   chmod +x INSTALL.sh
   ./INSTALL.sh
 #+END_SRC
+
+*NOTE*: If you haven't install =oh-my-zsh=, the =oh-my-zsh= installer will run a new
+zsh shell after the installation finished. Please press =Ctrl-D= to quit this shell to
+make the =INSTALL.sh= continue.
 
 [[https://www.dropbox.com/s/jvay2wa8jhzt4eg/install-howto.png?raw=1][https://www.dropbox.com/s/jvay2wa8jhzt4eg/install-howto.png?raw=1]]
 
@@ -38,8 +36,8 @@ the install script will install it automatically.
 After the installation, you can simply restart your terminal to see the changes.
 
 * Custom settings
-By default, you can create a file named =~/.zsh.my.sh= and put your settings there. Typically
-there are few variable you may be interested to change it:
+By default, you can store your custom configs in =~/.zsh.my.sh=. Typically
+there are few variable you may be interested to change:
 
 - DEFAULT_USER :: tell zsh your default user's name so that you can log in without prompting current username
 - INSTALLER :: the default is "brew install" for Mac users. If you're a Linux user you must change this to
@@ -57,11 +55,14 @@ The examples are:
   #!/bin/zsh
   # file: ~/.zsh.my.sh
   DEFAULT_USER=jack
-  #INSTALLER='sudo apt-get install' # Mac user don't have to set this
+  INSTALLER='sudo apt-get install'
   my_zsh_mod=(python java)
   MY_JAVA_CP='~/include/java/'
   ZSH_THEME="agnoster" # make sure you've installed the specail fonts before setting it
 #+END_SRC
+
+During the installation process, the script will ask you some common settings. You can type in the value, or, just 
+press enter to apply the default value.
 
 * Added Functions
 
