@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # download iTerm2 theme files
-[[ -d "${HOME}/Downloads/" ]] || mkdir "${HOME}/Downloads/"
+[[ -d "${HOME}/Downloads/" ]] && mkdir "${HOME}/Downloads/"
 themeweb='https://raw.githubusercontent.com/altercation/solarized/master/iterm2-colors-solarized/${theme}.itermcolors'
 for theme in "Solarized Light" "Solarized Dark"
 do
