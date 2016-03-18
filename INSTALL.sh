@@ -42,7 +42,7 @@ fi
 echo '#################################################'
 echo "# Installing oh-my-zsh plugins"
 echo '#################################################'
-[[ -d "~/.oh-my-zsh/custom/plugins/zsh-completions" ]] \
+[[ -d ~/.oh-my-zsh/custom/plugins/zsh-completions ]] \
     || git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 
 [[ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]] \
