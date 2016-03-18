@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# download iTerm2 theme files
 [[ -d "${HOME}/Downloads/" ]] || mkdir "${HOME}/Downloads/"
 themeweb='https://raw.githubusercontent.com/altercation/solarized/master/iterm2-colors-solarized/${theme}.itermcolors'
 for theme in "Solarized Light" "Solarized Dark"
@@ -10,8 +11,9 @@ do
     fi
 done
 
-if ! zsh --version; then
+if ! zsh --version 2>&1 >/dev/null; then
     echo "zsh not found. Installing ..."
+    source ./.zshenv
     source ./init.rc.sh
 elif [[ `basename "$SHELL"` != `basename $(which zsh)` ]]; then
     echo "Now change zsh as your default shell ..."
