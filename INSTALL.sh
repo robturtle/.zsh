@@ -99,7 +99,8 @@ echo '#################################################'
 echo '#################################################'
 echo "# Linking files"
 echo '#################################################'
-for link in .zshrc .percol.d .gitconfig .zshenv
+[[ -f ~/.gitconfig ]] || cp .gitconfig ~
+for link in .zshrc .percol.d .zshenv
 do
     echo "Now install my $link"
     differ=`diff "${PWD}/$link" "${HOME}/$link" 2>/dev/null`
