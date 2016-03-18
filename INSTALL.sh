@@ -13,6 +13,7 @@ done
 
 if ! zsh --version 2>&1 >/dev/null; then
     echo "zsh not found. Installing ..."
+    source ~/.zsh.my.sh
     source ./.zshenv
     source ./init.rc.sh
 elif [[ `basename "$SHELL"` != `basename $(which zsh)` ]]; then
