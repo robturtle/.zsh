@@ -11,10 +11,11 @@ function custom-set {
         eval "read $1"
         value=$(eval echo "$`eval echo $1`")
         [[ -z "$value" ]] && eval "$1='$2'"
+        value=$(eval echo "$`eval echo $1`")
         if [[ -z "$3" ]]; then
-            echo "$1='$2'" >> ~/.zsh.my.sh
+            echo "$1='$value'" >> ~/.zsh.my.sh
         else
-            echo "$1=($2)" >> ~/.zsh.my.sh
+            echo "$1=($value)" >> ~/.zsh.my.sh
         fi
     else
         echo "The current setting of $1 is $value"
