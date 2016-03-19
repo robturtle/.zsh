@@ -1,2 +1,12 @@
 # JavaScript Terminal Runner
-export PATH=${PATH}:/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources
+initinstall npm ${INSTALLER} npm
+
+function install-js {
+    initinstall $1 "npm install -g $1"
+}
+
+# for developing (Spacemacs)
+install-js tern
+install-js js-beautify
+install-js jshint
+install-js browser-sync
