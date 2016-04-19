@@ -26,3 +26,11 @@ initinstall easy_install 'sudo curl https://bootstrap.pypa.io/ez_setup.py -o - |
 initinstall pip sudo easy_install pip
 initinstall percol sudo pip install percol
 initinstall ranger ${INSTALLER} ranger
+
+# This may have compatibility issues on Linux system, testings required
+fp='/usr/local/share/zsh-completions'
+[[ -d $fp ]] || ${INSTALLER} zsh-completions
+if [[ -d $fp ]]; then
+    fpath=($fp $fpath)
+    rm -f ~/.zcompdump; compinit
+fi
