@@ -21,7 +21,6 @@ if [[ "$PLATFORM" == 'Darwin' && `echo "$INSTALLER" | cut -d " " -f 1` == 'brew'
 fi
 
 initinstall zsh ${INSTALLER} zsh
-initinstall ${PYTHON} ${INSTALLER} ${PYTHON}
 initinstall easy_install 'sudo curl https://bootstrap.pypa.io/ez_setup.py -o - | sudo ${PYTHON}'
 initinstall pip sudo easy_install pip
 initinstall percol sudo pip install percol
