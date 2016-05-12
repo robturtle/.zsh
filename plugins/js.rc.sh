@@ -10,7 +10,7 @@ function browser-sync-start {
     if [[ "$?" == "0" ]]; then
         echo "browser-sync already started."
     else
-        browser-sync start --server --files "*.html, css/*.css, javascript/*.js" $@
+        browser-sync start --server --files "*.html, css/*.css, javascript/*.js, src/*, *.js, *.jsx" $@
     fi
 }
 
