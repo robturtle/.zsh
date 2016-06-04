@@ -17,10 +17,12 @@ function browser-sync-start {
 function browser-sync-on {
     if [[ -h index.html ]]; then
         rm index.html
-    else
-        mv index.html index.html.bk
     fi
-    ln -s $1 index.html
+
+    if [[ "$1" != "index.html" ]]; then
+        ln -s $1 index.html
+    fi
+
     ps | grep "[b]rowser-sync start" &> /dev/null || browser-sync-start
 }
 
