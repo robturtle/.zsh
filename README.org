@@ -190,3 +190,13 @@ monitor with bad quality.
  | name    | function                  | rank   |
  |---------+---------------------------+--------|
  | gitkall | show all branches in gitk | Helper |
+
+
+* Troubleshooting
+** js module: npm ERROR: permission denied
+In my [[plugins/js.rc.sh][js mod file]] I prefer use =npm install -g= without =sudo=. Hence you may probably either remove "js" from =my_zsh_mod= in =~/.zsh.my.sh= or fix the permission of the installation destination.
+
+For Mac users, you may fix it by the command like =chown -R ${USER} /usr/local= regarding to =brew='s convention.
+
+** python module: Everytime I open a new shell, it tries to install some python packages with =pip=
+I use `python -c "import ${package}"` to check if the package is installed. If you encounter this situtation, that means you didn't configure your Python import path properly. Please remove "python" from =my_zsh_mod= in =~/.zsh.my.sh= until you read about the Python's =sys.path= and configure it right.
