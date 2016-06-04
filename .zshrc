@@ -82,7 +82,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # git local-commits	list unpushed commits on the local branch
 #
 # wd bookmarks dirs
-plugins=(git brew dircycle dirhistory git-extras wd mvn)
+plugins=(git brew dircycle dirhistory git-extras wd mvn meteor)
 
 # 0. user variables
 custom="${HOME}/.zsh.my.sh"
