@@ -117,4 +117,15 @@ for plugin in "$ZSH"/custom/plugins/*; do
 done
 check-update
 
+# avoid Emacs Tramp hangs on waiting correct prompt
+if [[ "$TERM" == "dumb" ]]
+then
+    unsetopt zle
+    unsetopt prompt_cr
+    unsetopt prompt_subst
+    unfunction precmd
+    unfunction preexec
+    PS1='$ '
+fi
+
 autoload -U compinit && compinit
